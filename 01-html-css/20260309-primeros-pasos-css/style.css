@@ -1,0 +1,30 @@
+/* Un estilo genérico aplicado a elementos <p> */
+p {
+    color: red;
+}
+
+/* Se aplica a elementos <p> con class "special" */
+p.special {
+    color: blue;
+}
+
+/* Se aplica a elementos <p> que están dentro de un <div> */
+div p {
+    color: green;
+}
+
+/* Se aplica a elementos <p> que son HIJOS DIRECTOS de un <div> */
+div > p {
+    color: orange;
+}
+
+/* Se aplica a elementos <a> (enlaces) */
+a {
+    color: #3e0833;
+    background-color: yellow;
+}
+
+/* Se aplica a elementos <a> (enlaces) cuando se pasa con el ratón encima (pseudo-class) */
+a:hover {
+    color: #1a8288;
+}
