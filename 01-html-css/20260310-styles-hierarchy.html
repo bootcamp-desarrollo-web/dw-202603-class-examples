@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerarquía de estilos</title>
+</head>
+<body>
+    <ol>
+        <li>Alberto</li>
+        <li class="color-blue" id="delegado">Beatriz:
+            <ul>
+                <li>Pasta</li>
+                <li>Ensalada</li>
+            </ul>
+        </li>
+        <li>Carlos
+            <ul>
+                <li>Carne</li>
+                <li>Pescado</li>
+            </ul>
+        </li>
+        <li class="color-blue">David</li>
+    </ol>
+    
+</body>
+</html>
+
+<style>
+li {
+    color: red;
+}
+
+li.color-blue {
+    color: blue;
+}
+
+li#delegado {
+    color: orange;
+}
+
+/* Descoemnta este bloque para comprobar la aplicación de !important */
+/*
+li {
+    color: green !important
+}
+*/
+</style>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Tables: colspan + rowspan</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Teléfono</th>
+  </tr>
+
+  <tr>
+    <td>Alfonso</td>
+    <td>Álvarez</td>
+    <td>111111111</td>
+  </tr>
+
+  <tr>
+    <td colspan="2">Alberto</td>
+    <td>222222222</td>
+  </tr>
+
+  <tr>
+    <td>Beatriz</td>
+    <td>Benítez</td>
+    <td rowspan="2">333333333</td>
+  </tr>
+
+  <tr>
+    <td>Carlos</td>
+    <td>Cortés</td>
+  </tr>
+
+  <tr>
+    <td>Daniel</td>
+    <td>Moreno</td>
+    <td>444444444</td>
+  </tr>
+</table>
+</body>
+</html>
+
+<style>
+  table, th, td {
+    border: 1px solid black;
+    /* border-collapse: collapse; */
+  }
+
+  th, td {
+    padding: 5px 20px;
+  }
+</style>
