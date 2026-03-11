@@ -6,20 +6,25 @@
     <title>Primeros pasos CSS (inline + interno)</title>
     <style>
         p {
-            color: blue;
             font-size: 24px;
         }
 
-        .special {
+        .text-bold {
            font-weight: bold;
+        }
+
+        #first-paragraph {
+            color: #1b8246;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
     <h1 style="color: red;">Primera página de html</h1>
-    <p>Primer párrafo</p>
+    <p id="first-paragraph">Primer párrafo</p>
     <p>Segundo párrafo</p>
-    <p class="special">Un párrafo especial</p>
+    <p class="text-bold">Un párrafo en negrita</p>
+    <p class="text-bold">Y otro párrafo en negrita</p>
     <p>Tercer párrafo</p>
 </body>
 </html>
