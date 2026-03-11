@@ -1,0 +1,29 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+th, td {
+    padding: 5px 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #ebb0b0;
+}
+
+/* Selector de id */
+#park {
+    background-color: #c3fab8;
+}
+
+/* Selector de class */
+.food {
+    background-color: rgb(206, 159, 237);
+}
+
+/* Aplicado al primer hijo (también el primer th, ya que esta regla es más específica) */
+tr td:first-child , tr th:first-child {
+    background-color: #f5d6d6;
+}
