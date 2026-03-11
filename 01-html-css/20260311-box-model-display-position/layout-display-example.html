@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout example</title>
+</head>
+<body>
+    <h3>Elementos tipo span (display inline)</h3>
+    <span class="rojo">Este es un span</span>
+    <span class="azul">y aquí empieza otro span</span>
+    <span class="rojo">y aquí volvemos a tener uno rojo</span>
+
+    <h3>Elemntos tipo div (display block)</h3>
+    <div>Este es un div</div>
+    <div>Este es otro div que es más largo</div>
+
+    <h3>Elementos tipo div con display inline-block</h3>
+    <div class="display-inline-block">Primer div inline-block</div>
+    <div class="display-inline-block">y segundo div inline-block</div>
+
+    <div class="display-none">Este elemento no se ve</div>
+    
+</body>
+</html>
+
+<style>
+    span {
+        width: 500px;
+    }
+    span.rojo {
+        color: red;
+    }
+    span.azul {
+        color: blue;
+    }
+
+    div {
+        border: 1px solid black;
+        width: 300px;
+        padding: 3px;
+    }
+
+    .display-inline-block {
+        display: inline-block;
+    }
+
+    .display-none {
+        display: none;
+    }
+</style>
