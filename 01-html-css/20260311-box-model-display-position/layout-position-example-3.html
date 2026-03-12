@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <div>Por defecto, los elementos tienen <code>position:static</code></div>
+
+  <div class="position-relative">
+    Este div tiene <code>position:relative</code>
+
+    <div class="position-absolute">
+      Este div tiene <code>position:absolute</code>
+    </div>
+  </div>
+  
+
+</body>
+</html>
+
+<style>
+  div {
+    border: 1px solid black;
+  }
+
+  .position-relative {
+    position: relative;
+    top: 30px;
+    height: 150px;
+    background-color: rgb(149, 212, 110);
+  }
+
+  .position-absolute {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgb(232, 133, 229);
+  }
+
+  
+</style>
