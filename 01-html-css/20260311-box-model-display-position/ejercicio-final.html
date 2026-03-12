@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio final</title>
+</head>
+<body>
+<div class="tarjeta">
+  <h3>¡Bienvenidas!</h3>
+
+  <p class="texto">
+    Este es un texto largo que sirve para comprobar cómo funciona el overflow
+    dentro de un contenedor con altura limitada. <br>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mollis lectus at commodo pharetra. Nam rutrum neque purus, non varius
+    diam blandit a. Duis mi metus, varius in diam pretium, gravida vehicula velit. In quam magna, bibendum vel est vitae, aliquet cursus est.
+    Phasellus a nulla nunc. Pellentesque semper ex quis lacus sodales vehicula. Mauris ut finibus metus. In ut porttitor ex, sed sollicitudin velit.
+    Aliquam nec tristique orci. Duis porttitor enim eu diam tempus malesuada sit amet vitae ex. Donec a ullamcorper urna, in vulputate est.
+    Integer mattis volutpat nisl. Phasellus in lacus iaculis, aliquet nibh efficitur, tempus dolor.
+  </p>
+
+  <div class="cuadro">*</div>
+</div>
+</body>
+</html>
+
+<style>
+  .tarjeta {
+    width: 250px;
+    padding: 15px;
+    margin: 20px;
+    border: 2px solid #333;
+    background: #f2f2f2;
+    position: relative;
+  }
+
+  .texto {
+    height: 60px;
+    overflow: auto;
+    border: 1px solid #aaa;
+    padding: 5px;
+  }
+
+  .cuadro {
+    width: 30px;
+    height: 30px;
+    background: coral;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+</style>
