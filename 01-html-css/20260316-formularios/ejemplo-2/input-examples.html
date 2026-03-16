@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplos de inputs (formularios)</title>
+</head>
+<body>
+  <div class="form-container">
+    Formulario de ejemplo
+        <form action="parse-form.html" method="post">
+
+          <div>
+            <input type="text" placeholder="Escribe tu nombre">
+          </div>
+
+          <div>
+            <input type="text" value="Mi albún de fotos">
+          </div>
+
+          <div>
+            <input type="text" disabled>
+          </div>
+
+          <div>
+            <input type="checkbox" name="is_agree" id="is_agree">
+            <label for="is_agree">Estoy de acuerdo con...</label>
+          </div>
+
+          <div>
+            <input type="radio" name="selected_color" value="green" id="color_verde">
+            <label for="color_verde">Verde</label>
+
+            <input type="radio" name="selected_color" value="blue" id="color_azul">
+            <label for="color_azul">Azul</label>
+          </div>
+
+          <div>
+            <select name="country" id="">
+              <option value="opt1">Pais 1</option>
+              <option value="opt2">Pais 2</option>
+              <option value="opt3">Pais 3</option>
+            </select>
+          </div>
+
+          <div>
+            <textarea name="free_text" id=""></textarea>
+          </div>
+
+          <div>
+            <!-- Una alternativa para la etiqueta <button> -->
+            <input type="submit" value="Enviar">
+          </div>
+
+    </form>
+  </div>  
+</body>
+</html>
+
+<style>
+    .form-container {
+        border: 1px solid black;
+        width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    .form-container > form > div {
+        margin: 10px 0px;
+    }
+
+    .form-container > form > div > label {
+        width: 100px;
+        display: inline-block;
+    }
+</style>
