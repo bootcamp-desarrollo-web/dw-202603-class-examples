@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS flex - ejemplo básico</title>
+</head>
+<body>
+    <div class="container">
+        <div class="item">Bloque A</div>
+        <div class="item">Bloque B</div>
+        <div class="item item-first">Bloque C</div>
+        <div class="item">Bloque D</div>
+    </div>
+</body>
+</html>
+
+<!-- CSS -->
+<style>
+    .container {
+        display: flex;
+        border: 1px dotted rgb(167, 167, 167);
+        background-color: #ffefd6;
+        max-width: 800px;
+        margin: 50px auto;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .item {
+        width: 180px;
+        height: 180px;
+        border: 1px solid black;
+        background-color: #a07e48;
+    }
+
+    .item-first {
+        order: -1;
+    }
+</style>
