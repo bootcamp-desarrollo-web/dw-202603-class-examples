@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de jerarquía de estilos usando etiquetas semánticas</title>
+</head>
+<body>
+    <!-- ¿Qué estilos se aplicarán a este elemento? ¿Porqué? -->
+    <header class="mainHeader">
+        Este es un encabezado (con class=mainHeader)
+    </header>
+
+    <!-- ¿Y a este? -->
+    <header>
+        Este es otro encabezado (sin class)
+    </header>
+
+    <!-- ¿Y a este? -->
+    <section class="mainHeader">
+        Esa es una sección (con class=mainHeader)
+    </section>
+</body>
+</html>
+
+<style>
+    /* Usamos el asterisco como comiodín - estos estilos se aplicarán a TODAS las etiquetas */
+    * {
+        padding: 10px;
+    }
+
+    /* Estilos que se aplican a todas las etiquetas <header> */
+    header {
+        background-color: #f6ffc4;
+        border: 1px solid black;
+    }
+
+    /* Estilos que se aplican a cualquier etiqueta que tenga la clase mainHeader */
+    .mainHeader {
+        background-color: #a2d7fe;
+        border: 1px solid black;
+    }
+
+    /* Estilos que se aplican únicamente a las etiquetas <header> que tengan la clase mainHeader */
+    header.mainHeader {
+        background-color: #fea2f0;
+        border: 1px solid black;
+    }
+
+</style>
