@@ -6,6 +6,7 @@
   <title>Example HTML for DOM access</title>
 </head>
 <body>
+  <p>Titulo</p>
   <div class="container">
     <div class="item">
       First Item
@@ -74,3 +75,44 @@
     color: #ffffff;
   }
 </style>
+
+<script>
+/**
+ * Para ver qué hace cada línea, puedes descomentarlo en este fichero y refrescar el navegador,
+ * o copiar el código a la consola de desarrollador 
+ */
+
+/**
+ * Manipulación de contenido de un elemento concreto
+ */ 
+// Obtener el primer nodo del HTML que es una <p>
+//const firstPEl = document.querySelector('p');
+
+// Cambiar el contenido TEXTUAL del primer párrafo
+//firstPEl.textContent('Nuevo título');
+
+// Cambiar el HTML interno del primer párrafo
+//firstPEl.textContent('Nuevo <strong>título</strong>');
+
+/**
+ * Manipulación de atributos de un elemento concreto
+ */
+// Obtener la segunda etiqueta <img> (por su id)
+//const secondImgEl = document.getElementById('second-photo');
+
+// Mostrar la url de la segunda etiqueta <img>
+//secondImgEl.getAttribute('src');
+
+// Asignar nueva url a la segunda etiqueta <img>
+//secondImgEl.setAttribute('src', 'https://fastly.picsum.photos/id/191/200/100.jpg?hmac=PHmVbaCWqSBoNimEFUqoBTSBODHgqr9NRrrkwxO2RuU');
+
+
+/**
+ * Manipulación de clases de un elemento que forma parte de una serie de nodos
+ */
+// Obtener todos los nodos
+//const itemsEls = document.querySelectorAll('.item');
+
+// Añadir la clase 'dark' al tercer elemento (¡intenta cambiar el índice!)
+//itemsEls[2].classList.add('dark')
+</script>
