@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Example HTML for DOM access</title>
+</head>
+<body>
+  <div class="container">
+    <div class="item">
+      First Item
+    </div>
+    <div class="item">
+      Second Item
+    </div>
+    <div class="item">
+      Third Item
+    </div>
+    <div class="item">
+      <div>Some Item</div>
+      <button id="the-button">Click here</button>
+    </div>
+    <div class="item">
+      <img id="first-photo" src="https://fastly.picsum.photos/id/147/200/100.jpg?hmac=vnDDToADbz7Vy9tpHBqBeX1Vq7oahbp69Nr0448uxKI" alt="Sea waves">
+    </div>
+    <div class="item">
+      <img id="second-photo" src="https://fastly.picsum.photos/id/140/200/100.jpg?hmac=8-b_uNE0f2LSyhGY52wcRDkBOuKy0V0xUfH-4HWr4wg" alt="Trees">
+    </div>
+  </div>
+  
+</body>
+</html>
+
+<style>
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    
+  }
+
+  .container {
+    max-width: 900px;
+    display: flex;
+    margin: 50px auto;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .item {
+    border: 1px solid #5f6364;
+    padding: 30px;
+    width: 200px;
+    background-color: #ccbbdd;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  #the-button {
+    border: 1px solid #2c0909;
+    background-color: #641717;
+    padding: 10px 20px;
+    color: aliceblue;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  #the-button:hover {
+    background-color: #831f1f;
+    cursor: pointer;
+  }
+
+  .item.dark {
+    background-color: #421a69;
+    color: #ffffff;
+  }
+</style>
