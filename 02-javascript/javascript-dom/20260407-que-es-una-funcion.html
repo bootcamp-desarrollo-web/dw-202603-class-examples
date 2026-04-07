@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es una función?</title>
+</head>
+<body>
+    <h1>¿Qué es una función?</h1>
+    Abriendo la consola y revisando el código, podrás observar que una función
+    Puede ser tratada como que fuera una variable.
+</body>
+</html>
+
+<script>
+function onClick() {
+  alert('Button clicked');
+  return 99;
+}
+
+// Imprimir LA VARIABLE que almacena la función onClick, y el tipo de la variable
+console.log(onClick);
+console.log(typeof onClick);
+
+// En este caso primero se llama la función, y luego se imprime EL VALOR QUE LA FUNCIÓN DEVUELVE
+console.log(onClick());
+</script>

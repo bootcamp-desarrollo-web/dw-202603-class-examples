@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent default</title>
+</head>
+<body>
+    <label for="accept-conditions-checkbox">Acepto las condiciones</label>
+    <input type="checkbox" id="accept-conditions-checkbox" />
+</body>
+</html>
+
+<script>
+const checkboxEl = document.getElementById('accept-conditions-checkbox');
+
+// La función recibe como argumento el evento que le dispara
+function onClick(e) {
+    console.log('Checkbox clicked');
+    e.preventDefault();
+}
+
+checkboxEl.addEventListener('click', onClick)
+</script>

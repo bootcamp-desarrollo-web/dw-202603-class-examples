@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn-counter">Click here</button>
+
+    <div>This is a div</div>
+</body>
+</html>
+
+<style>
+div {
+    border: 1px solid #6d3030;
+    margin: 10px;
+}
+</style>
+
+<script>
+// La variable almacena el valotador. Es una variable GLOBAL.
+let counter = 0;
+
+// La función simplemente incrementa el contador e imprime su valor en la consola
+function incrementCounter() {
+    counter++;
+    console.log(counter);
+}
+
+// Primero obtenemos el nodo del botón
+const btnEl = document.getElementById('btn-counter');
+
+// Aquí "colgamos" la función para que cuando se dispare el evento `click`
+// sobre el botón esta función se llame.
+btnEl.addEventListener('click', incrementCounter)
+
+// Seleccionamos el div con el mismo selector CSS
+const divEl = document.querySelector('div')
+function mouseOver() {
+    console.log('Mouse over')
+}
+function mouseOut() {
+    console.log('Mouse out')
+}
+divEl.addEventListener('mouseover', mouseOver);
+divEl.addEventListener('mouseout', mouseOut);
+
+</script>
