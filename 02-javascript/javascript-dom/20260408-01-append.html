@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cajapadre {
+            border: 1px solid red;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="caja-padre">
+        <p> Hola, soy la caja padre </p>
+        <p id="parrafo-para-borrar">Este párrafo se va a borrar</p>
+    </div>
+</body>
+
+</html>
+<script>
+    // El comando `debugger` para la ejecución del código e invoca la funcionalidad de depuración.
+    // Para más información:
+    // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/debugger
+
+    // debugger
+
+    // Obtener el elemento padre
+    const cajaPadreEl = document.getElementById('caja-padre');
+
+    // ================================================================
+    // 1. Creamos primer div para agregar AL PRINCIPIO de la caja padre
+    // ================================================================
+    const newDiv = document.createElement("div")
+    newDiv.textContent = "Hola! (1)"
+
+    // Añadir estilos
+    newDiv.style.backgroundColor = "red"
+    newDiv.style.border = "1px solid black"
+
+    // Insertamos AL PRINCIPIO del div padre
+    cajaPadreEl.prepend(newDiv)
+
+    // ================================================================
+    // 2. Creamos primer div para agregar AL FINAL de la caja padre
+    // ================================================================
+    const newDiv2 = document.createElement("div")
+    newDiv2.textContent = "Hola! (2)"
+
+    // Añadir estilos
+    newDiv2.style.backgroundColor = "green"
+    newDiv2.style.border = "1px solid black"
+
+    // Insertamos AL FINAL del div padre
+    cajaPadreEl.append(newDiv2)
+
+    // ================================================================
+    // 3. Vamos a borrar el segundo párrafo que estça dentro de la
+    //    caja padre original
+    // ================================================================
+
+    // Puedes deshabilitar la depuración comentando esta línea
+    debugger
+
+    const parrafoEl = document.querySelector('#parrafo-para-borrar')
+    // const parrafoEl = document.getElementById('parrafo-para-borrar')
+    parrafoEl.remove()
+</script>
+<!--Crear un HTML con un div que tenga un borde, un texto y una id.
+Hay que generar dinámicamente nuevo div (con borde de otro color y 
+texto) y añadirlo dentro del primer div.-->
