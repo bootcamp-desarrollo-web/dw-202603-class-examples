@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios + JavaScript</title>
+</head>
+<body>
+    <h1>Formularios + JS</h1>
+    <p>Este fichero imprime a la consola el valor introducido en el formulario</p>
+
+    <form id="my-form" method="post">
+        <input id="username-input" type="text" name="usename" placeholder="User name" autocomplete="off">
+        <input type="submit" value="Send!">
+    </form>
+</body>
+</html>
+
+<script>
+const formEl = document.getElementById('my-form');
+// console.log(formEl);
+
+// La función del eventListener es una función flecha que recibe como parámetro el evento (e = event)
+formEl.addEventListener("submit", (e) => {
+    // Esta línea evita que los datos del formulario se envíen a una página nueva
+    e.preventDefault();
+
+    //console.log("In function...", e);
+
+    // Accedemos al objeto del formulario
+    let formValues = e.target;
+    console.log("Form values: ", formValues);
+    console.log(typeof formValues);
+
+    // accedemos al valor de un campo concreto
+    console.log("Field value: ", formValues.usename.value);
+});
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipular el DOM con bucle</title>
+</head>
+
+<body>
+    <table id="tabla-usuarios">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px 20px;
+    }
+
+    th {
+        background-color: yellow;
+    }
+</style>
+
+<script>
+    let usuarios = [
+        {
+            nombre: "Alfonso",
+            apellido: "Álvarez"
+        },
+        {
+            nombre: "Beatriz",
+            apellido: "Blasco"
+        },
+        {
+            nombre: "Carlos",
+            apellido: "Cervera"
+        }
+    ]
+
+    for (let idx = 0; idx < usuarios.length; idx++ ) {
+        console.log(usuarios[idx]);
+        addUser(usuarios[idx]);
+    }
+
+    function addUser(usuario) {
+        const trEl = document.createElement('tr');
+        const td1El = document.createElement('td');
+        const td2El = document.createElement('td');
+
+        td1El.innerText = usuario.nombre;
+        td2El.innerText = usuario.apellido;
+
+        trEl.append(td1El);
+        trEl.append(td2El);
+
+        const tableEl = document.getElementById('tabla-usuarios');
+        tableEl.append(trEl);
+    }
+</script>
