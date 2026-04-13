@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validación de formularios</title>
+</head>
+<body>
+  <form method="post">
+    <!-- El campo para introducir el número -->
+    <div>
+      <label for="userNumber">Introduce un número entre 10-12</label>
+      <input type="text" id="userNumber" name="userNumber" autocomplete="off" />
+    </div>
+
+    <!-- Botón para enviar el formualrio -->
+     <div>
+      <input type="submit">
+     </div>
+  </form>
+</body>
+</html>
+
+<script>
+  const MIN_VALUE = 10;
+  const MAX_VALUE = 20;
+
+  const formEl = document.querySelector('form');
+
+  formEl.addEventListener('submit', (event) => {
+    // Cancela el comportamiento predeterminado del evento
+    event.preventDefault();
+
+    // Obtiene el nodo del formulario y el valor del campo introducido por el usuario
+    const form = event.target;
+    const userNumberValue = form.elements.userNumber.value;
+
+    console.log(`El valor introducido: ${userNumberValue}`);
+
+    // Comprueba si el valor introducido es numerico
+    if (isNaN(userNumberValue)) {
+      console.error("El valor introducido NO es numerico");
+      return;
+    }
+
+    // Comprueba que el valor está dentro del rango
+    if (Number(userNumberValue) < MIN_VALUE || Number(userNumberValue) > MAX_VALUE) {
+      console.error(`El valor introducido tiene que ser entre ${MIN_VALUE} - ${MAX_VALUE}`);
+      return;
+    }
+
+    console.log('Todo OK - continuamos!');
+  });
+</script>
