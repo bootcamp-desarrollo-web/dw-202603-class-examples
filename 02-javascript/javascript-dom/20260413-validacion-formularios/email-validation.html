@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validación de un campo de correo electrónico</title>
+</head>
+<body>
+  <form method="post" id="emailForm">
+    <div>
+      <input type="text" id="email" name="email" placeholder="e-mail" autocomplete="off">
+      <div class="errorMsg" id="error-email"></div>
+    </div>
+
+    <div>
+      <button type="submit">Enviar</button>
+    </div>
+  </form>
+</body>
+</html>
+
+<script>
+  const formEl = document.getElementById('emailForm');
+
+  formEl.addEventListener('submit', (event) => {
+    event.preventDefault();
+    resetError();
+
+    let emailValue = formEl.elements.email.value.trim();
+    
+    if (emailValue.length === 0) {
+      const errMsg = "El campo email es obligatorio";
+
+      // (1.1) Primer paso - informar el error por consola
+      console.error(errMsg);
+
+      // (1.2) segundo paso - informar al usuario
+      showError(errMsg);
+
+      // (1.3) parar el proceso
+      return;
+    }
+
+    if (!emailValue.includes('@')) {
+      const errMsg = "El email debe incluir @"
+      // (2.1) Primer paso - informar el error por consola
+      console.error(errMsg);
+
+      // (2.2) segundo paso - informar al usuario
+      showError(errMsg);
+
+      // (2.3) parar el proceso
+      return;
+    }
+
+    console.log('Continuamos procesando el formulario...');
+  })
+
+  // Muestra el mensaje de error de validación al usuario
+  function showError(msg) {
+    document.getElementById('error-email').innerText = msg;
+    document.getElementById('email').classList.add('inputError')
+  }
+  
+  // Elimina el mensaje de error y los estilos relacionados
+  function resetError() {
+    document.getElementById('error-email').innerText = '';
+    document.getElementById('email').classList.remove('inputError')
+  }
+</script>
+
+<style>
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  padding: 20px;
+  margin: 20px auto;
+  width: 300px;
+}
+
+form > div {
+  margin: 20px;
+}
+
+.inputError {
+  border: 1px solid #7f1e1e;
+  background-color: rgb(230, 159, 170);
+}
+
+.errorMsg {
+  color: red;
+}
+
+</style>
