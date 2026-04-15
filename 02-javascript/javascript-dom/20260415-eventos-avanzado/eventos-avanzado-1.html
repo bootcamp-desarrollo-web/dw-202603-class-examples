@@ -48,3 +48,17 @@
     background-color: #9fe09e;
   }
 </style>
+
+<script>
+  document.querySelector('#item-a').addEventListener('click', (ev) => {
+    console.log('--> Azul');
+  });
+
+  document.querySelector('#item-b').addEventListener('click', (ev) => {
+    console.log('--> Verde');
+  });
+
+  document.querySelector('.container').addEventListener('click', (ev) => {
+    console.log('--> Rosa');
+  });
+</script>
