@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos avanzados</title>
+</head>
+<body>
+  <div class="container">
+    <div class="item" id="item-a">
+      div with id: <code>item-a</code>
+    </div>
+    <div class="item" id="item-b">
+      div with id <code>item-b</code>
+    </div>
+    <div class="item" id="item-c">
+      div with id <code>item-c</code>
+    </div>
+    <div class="item" id="item-d">
+      div with id <code>item-d</code>
+    </div>
+  </div>
+</body>
+</html>
+
+<style>
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    gap: 100px;
+    border: 1px solid black;
+    justify-content: center;
+    margin: 40px auto;
+    background-color: #fad7ef;
+
+  }
+
+  .item {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 80px 0px;
+  }
+
+  #item-a {
+    background-color: #b1cff2;
+  }
+
+  #item-b {
+    background-color: #9fe09e;
+  }
+
+  #item-c {
+    background-color: #e090af;
+  }
+
+  #item-d {
+    background-color: #dbe94a;
+  }
+</style>
+
+<script>
+//   document.querySelector('#item-a').addEventListener('click', (ev) => {
+//     console.log('--> Azul');
+//   });
+
+//   document.querySelector('#item-b').addEventListener('click', (ev) => {
+//     console.log('--> Verde');
+//   });
+
+  // Gracias a la propagación podemos detectar un click en el contenedor tanto si se dispara desde ahí
+  // o si se dispara desde alguno de los hijos.
+  // Usando ev.target podemos acceder al nodo que ha disparado el evento.
+  document.querySelector('.container').addEventListener('click', (ev) => {
+    if (ev.target.classList.contains('container')) {
+        console.log('Parent container clicked');
+
+    } else {
+        console.log('--> Child clicked: ', ev.target.id);
+    }
+    
+  });
+</script>
