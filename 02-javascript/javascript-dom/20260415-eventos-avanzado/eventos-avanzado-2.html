@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eventos avanzados</title>
 </head>
+
 <body>
   <div class="container">
     <div class="item" id="item-a">
@@ -21,6 +23,7 @@
     </div>
   </div>
 </body>
+
 </html>
 
 <style>
@@ -33,7 +36,6 @@
     justify-content: center;
     margin: 40px auto;
     background-color: #fad7ef;
-
   }
 
   .item {
@@ -64,24 +66,71 @@
 </style>
 
 <script>
-//   document.querySelector('#item-a').addEventListener('click', (ev) => {
-//     console.log('--> Azul');
-//   });
-
-//   document.querySelector('#item-b').addEventListener('click', (ev) => {
-//     console.log('--> Verde');
-//   });
-
   // Gracias a la propagación podemos detectar un click en el contenedor tanto si se dispara desde ahí
   // o si se dispara desde alguno de los hijos.
   // Usando ev.target podemos acceder al nodo que ha disparado el evento.
   document.querySelector('.container').addEventListener('click', (ev) => {
+
+    // Tenemos que averiguar de qué elemento se ha disparado el evento
+    console.log("Click target: ", ev.target)
+
     if (ev.target.classList.contains('container')) {
-        console.log('Parent container clicked');
+      //======================================================================================================
+      // Caso 1 - el click se ha realizado sobre el contenedor grande (rosa)
+      //======================================================================================================
+      console.log('Parent container clicked');
+
+      // Obtenemos los hijos del contenedor padre para imprimir el listado de IDS
+      let children = ev.target.children;
+
+      // Esta línea imprime los hijos, la variable es una instancia de HTMLCollection (parecido a un array)
+      console.log(' -> children: ', children);
+
+      /// **************************************
+      // Solución 1 - bucle
+      /// **************************************
+      let childrenIdsArr1 = [];
+      for (let currentChild of children) {
+        // Agregamos al rray la id del hijo actual
+        childrenIdsArr1.push(currentChild.id)
+      }
+
+      console.log('Solución 1:', childrenIdsArr1);
+
+      /// **************************************
+      // Solución 2 - la función Array.map
+      /// **************************************
+      // Se puede usar la función map para imprimir en una forma bonita los hijos,
+      // para ello necesitamos primero convertir la variable children
+      // que es una instancia de HTMLCollection a un array
+      let childrenArr2 = Array.from(children);
+      
+      // Ahora podemos llamar la función map (https://www.w3schools.com/jsref/jsref_map.asp)
+      let childrenIdsArr2 = childrenArr2.map((el) => {
+        return el.id;
+      });
+      console.log('Solución 2:', childrenIdsArr2);
+
+    } else if (ev.target.tagName === 'CODE') {
+      //======================================================================================================
+      // Caso 2 - el click se ha realizado sobre el texto dentro de una etiqueta <code>
+      //======================================================================================================
+
+      console.log('--> (*) Child clicked: ', ev.target.parentElement.id);
 
     } else {
-        console.log('--> Child clicked: ', ev.target.id);
+      //======================================================================================================
+      // Caso 3 - el click se ha realizado sobre uno de los bloques de color
+      //======================================================================================================
+
+      console.log('--> Child clicked: ', ev.target.id);
+
+      if (ev.target.previousElementSibling !== null) {
+        console.log('    previos element: ', ev.target.previousElementSibling.id)
+      }
+      if (ev.target.nextElementSibling !== null) {
+        console.log('    next element: ', ev.target.nextElementSibling.id)
+      }
     }
-    
   });
 </script>
