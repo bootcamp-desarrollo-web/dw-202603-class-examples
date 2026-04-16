@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos relacionados con elementos solapados</title>
+</head>
+<body>
+    <p>
+        Este fichero explora qué ocurre con eventos (por ejemplo clic) que ocurren en zona compartida <br>
+        a dos elementos que NO tienen relación de padre-hijo
+    </p>
+    <div class="item" id="yellow"></div>
+    <div class="item" id="blue"></div>
+</body>
+</html>
+<style>
+.item {
+    display: block;
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    opacity: 50%;
+}
+
+#yellow {
+    background-color: yellow;
+    top: 100px;
+    left: 400px;
+}
+
+#blue {
+    background-color: blue;
+    top: 250px;
+    left: 550px;
+}
+</style>
+
+<script>
+    document.getElementById('yellow').addEventListener('click', (el) => {
+        console.log('Yellow');
+    })
+    document.getElementById('blue').addEventListener('click', (el) => {
+        console.log('Blue');
+    })
+</script>
