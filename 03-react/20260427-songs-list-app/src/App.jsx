@@ -20,17 +20,18 @@ function App() {
 
   return (
     <>
-      <h1>Hello World</h1>
+      <h1>Lista de mis canciones favoritas</h1>
 
       {/* Iteramos sobre la información de las canciones usando la función 'map' */}
-      { songsData.map((songObj) => {
+      { songsData.map((songObj, idx) => {
+        // Cada instancia de SongTicket requiere una key única.
+        // idx es el índice dentro del array, también podríamos usar (más correcto cuando trabajamos con BBDD)
+        // songObj.id, que es la id del objeto en la base de datos.
         return (
-        <SongTicket
-          author={songObj.author}
-          title={songObj.title}
-          year={songObj.year}
-          videoUrl={songObj.videoUrl}
-        />          
+          <SongTicket
+            key={idx}
+            songObj={songObj}
+          />
         )
       }) }
     </>
