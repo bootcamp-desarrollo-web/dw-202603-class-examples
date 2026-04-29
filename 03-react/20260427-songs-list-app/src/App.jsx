@@ -29,7 +29,7 @@ function App() {
         // songObj.id, que es la id del objeto en la base de datos.
         return (
           <SongTicket
-            key={idx}
+            key={idx} // Otra opción sería usar songObj.id
             songObj={songObj}
           />
         )
