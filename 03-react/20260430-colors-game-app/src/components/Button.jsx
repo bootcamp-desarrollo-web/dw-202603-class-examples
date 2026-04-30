@@ -1,7 +1,7 @@
-function Button({btnTitle}) {
+function Button({btnData}) {
   return (
     <div className="button">
-        {btnTitle}
+        {btnData.title}
     </div>
   )
 }

@@ -1,13 +1,28 @@
 import Button from "./components/Button"
 
+const btnsArray = [
+  {
+    title: 'Red',
+    color: 'ff0000',
+  },
+  {
+    title: 'Blue',
+    color: '00ff00',
+  },
+  {
+    title: 'Green',
+    color: '0000ff',
+  },
+]
+
 function App() {
   return (
     <div className="container">
-      <Button btnTitle={'Botón 1'} />
-      <Button btnTitle={'Botón 2'} />
-      <Button btnTitle={'Botón 3'} />
-      <Button btnTitle={'Botón 4'} />
-      <Button btnTitle={'Botón 5'} />
+      { btnsArray.map((el, idx) => {
+        return (
+          <Button key={idx} btnData={el} />
+        )
+      }) }
     </div>
   )
 }
