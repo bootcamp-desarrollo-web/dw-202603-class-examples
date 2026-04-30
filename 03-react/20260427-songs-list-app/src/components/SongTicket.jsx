@@ -12,7 +12,6 @@ function SongTicket({songObj}) {
 
     // Esta función espera a un parametro - el nombre de la canción1
     function onLikeBtnClick(songName) {
-        console.log('Evento: ', e)
         alert('Me gusta la canción ' + songName)
     }
 
