@@ -1,0 +1,38 @@
+.box {
+    border: 1px solid black;
+    width: 300px;
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+button {
+  padding: 10px 18px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #3a78c2;
+}
+
+button.working-btn {
+  background: #4a90e2;
+}
+button.working-btn:hover {
+  background: #3a78c2;
+}
+
+button.not-working-btn {
+  background: #e24a57;
+}
+
+button.not-working-btn:hover {
+  background: #d1424e;
+}
