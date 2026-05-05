@@ -1,6 +1,9 @@
 import { useState } from "react"
 
 function WorkingCounter() {
+  // Imprimir a consola cuando se renderiza el componente
+  console.log("Rendering WorkingCounter (hijo 2)...")
+  
   // useState devuelve:
   // - la variable PARA MOSTRAR
   // - una función PARA MODIFICAR
@@ -14,11 +17,12 @@ function WorkingCounter() {
     //  2. React vuelve a renderizar ESTE componente
     setCounter(newCounter)
 
-    console.log('[onBtnClick]: ', newCounter)
+    console.log('[WorkingCounter:onBtnClick]: ', newCounter)
   }
 
   return (
     <>
+    <p>WorkingCounter</p>
     <button onClick={onBtnClick} className="working-btn">{counter}</button>
     </>
   )

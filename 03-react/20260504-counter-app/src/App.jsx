@@ -4,6 +4,8 @@ import NotWorkingCounter from "./components/NotWorkingCounter"
 import WorkingCounter from "./components/WorkingCounter"
 
 function App() {
+  // Imprimir a consola cuando se renderiza el componente
+  console.log("Rendering App (padre)...")
 
   return (
     <>
