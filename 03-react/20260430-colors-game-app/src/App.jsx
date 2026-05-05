@@ -1,14 +1,18 @@
+import { useState } from "react"
 import Button from "./components/Button"
-import buttonsList from "./data/buttonsList"
+import buttonsList from "./data/buttonsListPastel"
 
 function App() {
+  const [bgColor, setbgColor] = useState('123456')
+
   // Creamos una función (callback) para que el componente hijo la pueda llamar
   function onBtnClick(colorHex) {
     console.log("[App.jsx] Botton clicked: ", colorHex)
+    setbgColor(colorHex)
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{backgroundColor:bgColor}}>
       { buttonsList.map((el, idx) => {
         return (
           <Button key={idx}
