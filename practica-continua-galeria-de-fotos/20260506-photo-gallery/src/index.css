@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  margin: 50px auto;
+  /* border: 1px solid black; */
+  width: 875px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  row-gap: 25px;
+  column-gap: 25px;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  background-color: bisque;
+  border: 0;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* recorta sin deformar */
+  object-position: center; /* centra el recorte */
+}
