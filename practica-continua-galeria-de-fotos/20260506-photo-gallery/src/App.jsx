@@ -1,5 +1,6 @@
 import photosArr from "./data/photos"
 import PhotoHolder from "./components/PhotoHolder"
+import PhotoModal from "./components/PhotoModal"
 
 function App() {
   function onImgClick(imgObj) {
@@ -8,6 +9,7 @@ function App() {
 
   return (
     <>
+    <PhotoModal imgObj={photosArr[0]} />
     <div className="container">
       { photosArr.map((el, idx) => {
         return <PhotoHolder key={idx} imgObj={el} onImgClickCallback={onImgClick} />
