@@ -22,3 +22,8 @@
   object-fit: cover; /* recorta sin deformar */
   object-position: center; /* centra el recorte */
 }
+
+.item img:hover {
+  opacity: 50%;
+  cursor: pointer;
+}

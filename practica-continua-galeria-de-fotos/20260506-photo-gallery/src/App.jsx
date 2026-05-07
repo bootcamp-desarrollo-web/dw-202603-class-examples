@@ -1,15 +1,16 @@
 import photosArr from "./data/photos"
+import PhotoHolder from "./components/PhotoHolder"
 
 function App() {
+  function onImgClick(imgObj) {
+    console.log('[App:onImgClick]', imgObj)
+  }
+
   return (
     <>
     <div className="container">
       { photosArr.map((el, idx) => {
-        return (
-          <div key={idx} className="item">
-            <img src={el.src} alt="" />
-          </div>
-        )
+        return <PhotoHolder key={idx} imgObj={el} onImgClickCallback={onImgClick} />
       })}
     </div>
     </>
