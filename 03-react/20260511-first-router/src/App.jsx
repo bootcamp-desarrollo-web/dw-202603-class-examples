@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 function App() {
 
@@ -7,8 +7,11 @@ function App() {
     <h1>App</h1>
 
     <nav>
-      <Link to='/about'>About</Link>
+      <Link to="/">Home</Link> | <Link to='/about'>About</Link>
     </nav>
+
+    {/* Mostrar el contenido de los componentes hijos */}
+    <Outlet />
     </>
   )
 }

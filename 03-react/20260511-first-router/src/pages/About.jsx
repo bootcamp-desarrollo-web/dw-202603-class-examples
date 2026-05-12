@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 function About() {
     return (
         <>
         <h1>About</h1>
-        <Link to="/" >Home</Link>
+
+        <nav>
+            <Link to="alonso">Alonso</Link> | <Link to="beatriz">Beatriz</Link> | <Link to="carlos">Carlos</Link>
+        </nav>
+
+        <Outlet />
         </>
     )
 }
