@@ -10,10 +10,10 @@ Exposiciones		/exposiciones
   Temporales		/exposiciones/temporales
   Infantiles		/exposiciones/infantiles
 Artistas		    /artistas
-  Van Gogh		    /artistas/van-Gogh
+  Van Gogh		  /artistas/van-Gogh
   Frida Kahlo		/artistas/frida-kahlo
   Picasso		    /artistas/picasso
-Contacto            /contacto
+Contacto        /contacto
 ```
 
 Tanto la página de exposición como de artista reciben una id del elemento a mostrar.
