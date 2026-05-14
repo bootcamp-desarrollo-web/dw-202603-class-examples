@@ -1,0 +1,42 @@
+nav {
+    margin-bottom: 20px;
+}
+nav a {
+    border: 1px solid #353535;
+    margin: 10px;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #de9beb;
+}
+
+nav a:hover {
+    background-color: #bd75cc;
+}
+
+
+.hero-card {
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 10px;
+  max-width: 600px;
+  margin: 10px;
+}
+
+.hero-card img {
+  width: 150px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.hero-content h1 {
+  font-size: 28px;
+  margin: 0 0 5px 0;
+}
+
+.hero-content p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6rem;
+}
