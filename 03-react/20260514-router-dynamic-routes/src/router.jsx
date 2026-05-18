@@ -14,9 +14,9 @@ const router = createBrowserRouter([
                 element: <CardDefault />
             },
             {
-                path: ':heroId',
+                path: ':slug',
                 element: <Card />
-            }
+            },
         ]
     }
 ])
