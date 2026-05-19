@@ -9,3 +9,11 @@ Añadir a `App.jsx` un contador global que se incremente **cada vez que se incre
 **¡Importante!**  
 Hay que usar contexto, no propiedades.
 
+## Pasos:
+1. Crear un fichero para el contexto (`contexts/GlobalCounterContext.jsx`)
+
+2. En `App.jsx`:  
+  2.1 Añadir un state para el contador global + mostrarlo en el html  
+  2.2 Añadir un proveedor de contexto que envuelva los hijos (`Counter`) - ¿qué hay que pasar en `value`?  
+
+3. En `Counter.jsx` consumir el contexto, y usar la función `set` para incrementar el contador global.
