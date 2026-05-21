@@ -1,16 +1,23 @@
-# React + Vite
+# Tabla de multiplicar implementada con React usando useEffect
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+En este ejercicio tu tarea es implementar una simple tabla de multiplicar.
+En la pantalla hay que mostrar lo siguietne:
+```
++-----+        +-----+
+|  -  |   1    |  +  |
++-----+        +-----+
 
-Currently, two official plugins are available:
+1 x 1 = 1
+1 x 2 = 2
+1 x 3 = 3
+1 x 4 = 4
+1 x 5 = 5
+```
+Dos botones, con - y +, y entre ellos el número 1.
+Debajo las primeras 5 multiplicaciones del número 1.
+Los botones - y + decrementan/incrementan el número, lo que actualiza la tabla.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A parte, hay que mostrar en el título de la página el texto:
+Mult.1
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Este text cambia cuando se actualiza el valor de la variable.
