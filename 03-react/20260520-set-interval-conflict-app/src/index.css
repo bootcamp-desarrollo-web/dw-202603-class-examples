@@ -1,0 +1,26 @@
+body {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.clock {
+    background-color: antiquewhite;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+}
+
+button {
+  background-color: #6062d7; 
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #5456c2;   /* Un poco más oscuro al pasar el ratón */
+}
