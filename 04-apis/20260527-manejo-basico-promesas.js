@@ -1,9 +1,9 @@
 console.log('¡Comenzamos!')
 
-fetch('https://6a146e4f6c7db8aac054842f.mockapi.io/api/users')
+fetch('https://6a146e4f6c7db8aac054842f.mockapi.io/api/users/1')
     .then((response) => {
         console.log('¡Tengo la respuesta!')
-        // status más comunes:
+        // http status más comunes:
         // 200 - OK
         // 404 - not found
         // 500 - Server Error
@@ -23,5 +23,9 @@ fetch('https://6a146e4f6c7db8aac054842f.mockapi.io/api/users')
         console.log('-------------------------------------')
         console.log(data)
     })
+    .catch((err) => {
+        console.error('[ERROR] Se ha producido un error')
+    })
+    
 
 console.log('--- Fin ---')
