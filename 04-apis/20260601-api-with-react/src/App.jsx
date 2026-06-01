@@ -26,16 +26,26 @@ function App() {
       })
   }
 
-  
+  // ============== ¡MUY IMPORTANTE! ============================
+  // Si no usamos useEffect, ocurre lo siguiente:
+  //  1. Se llama la función fetchData()
+  //  2. Tras recibir los datos del servidor, se actualiza la variable apiData (que es una variable tipo state)
+  //  3. Al actualizar la variable apiData se vuelve a renderizar el componente
+  //  4. LO IMPORTANTE - sin no esta encapsulada dentro de useEffect, la función fetchData() se vuelve a llamar, y
+  //                     volvemos al punto (2)
   useEffect(() => {
     fetchData()
   }, [])
+  // ============== ================ ============================
 
+  // Cuando renderizamos por primera vez, apiData es undefined. Sólo cuando se vuelve de la promesa es un array.
+  // Por esta razón es importante usar el operador ternario mostrando 'loading...' (o un gif por ejemplo)
+  // Para el bucle de map, podemos usar como key la misma id de los elementos que nos ha devuelto la api
   return (
     <>
     <h3>First React API app.</h3>
-    {apiData ? 'algo' : 'nada'}
-    <p>{JSON.stringify(apiData)}</p>
+    { apiData ? apiData.map(el => { return <div key={el.id}>{el.name}</div>}) : 'Loading....' }
+
     </>
   )
 }
