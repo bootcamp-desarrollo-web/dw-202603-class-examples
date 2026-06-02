@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import UserTicket from "./components/UserTicket"
 
 function App() {
   const [apiData, setApiData] = useState()
@@ -38,14 +39,19 @@ function App() {
   }, [])
   // ============== ================ ============================
 
+  function renderUsers(apiData) {
+    return apiData.map(userObj => {
+      return <UserTicket key={userObj.id} userData={userObj} />
+    })
+  }
+
   // Cuando renderizamos por primera vez, apiData es undefined. Sólo cuando se vuelve de la promesa es un array.
   // Por esta razón es importante usar el operador ternario mostrando 'loading...' (o un gif por ejemplo)
   // Para el bucle de map, podemos usar como key la misma id de los elementos que nos ha devuelto la api
   return (
     <>
     <h3>First React API app.</h3>
-    { apiData ? apiData.map(el => { return <div key={el.id}>{el.name}</div>}) : 'Loading....' }
-
+    { apiData ? renderUsers(apiData) : 'Loading....' }
     </>
   )
 }
