@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import UserTicket from "./components/UserTicket"
+import UserForm from "./components/UserForm"
 
 function App() {
   const [apiData, setApiData] = useState()
+  const apiUrl = 'https://6a146e4f6c7db8aac054842f.mockapi.io/api/users'
 
   console.log('==> apiData: ', apiData)
 
   function fetchData() {
     console.log('IN fetchData')
-    fetch('https://6a146e4f6c7db8aac054842f.mockapi.io/api/users')
+    fetch(apiUrl)
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -39,6 +41,14 @@ function App() {
   }, [])
   // ============== ================ ============================
 
+  function addUser(newUser) {
+    console.log('[addUser]', newUser)
+
+    // Volvemos a llamar a fetchData para cargar los datos del servidor.
+    // Otra posibilidad sería agredar newUser al array apiData
+    fetchData()
+  }
+
   function renderUsers(apiData) {
     return apiData.map(userObj => {
       return <UserTicket key={userObj.id} userData={userObj} />
@@ -51,6 +61,7 @@ function App() {
   return (
     <>
     <h3>First React API app.</h3>
+    <UserForm apiUrl={apiUrl} addUserCallback={addUser}/>
     { apiData ? renderUsers(apiData) : 'Loading....' }
     </>
   )
