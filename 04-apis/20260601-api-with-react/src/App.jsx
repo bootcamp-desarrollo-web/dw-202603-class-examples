@@ -6,11 +6,15 @@ function App() {
   const [apiData, setApiData] = useState()
   const apiUrl = 'https://6a146e4f6c7db8aac054842f.mockapi.io/api/users'
 
-  console.log('==> apiData: ', apiData)
+  const [pageNumber, setPageNumber] = useState(1)
+
+  // console.log('==> apiData: ', apiData)
 
   function fetchData() {
     console.log('IN fetchData')
-    fetch(apiUrl)
+    // En esta URL NO funciona la paginación, es sólo para ver como incorporarla dentro de useEffect
+    const pageSpecificUrl = `${apiUrl}?page=${pageNumber}` // https://6a146e4f6c7db8aac054842f.mockapi.io/api/users?page=1
+    fetch(pageSpecificUrl)
       .then(response => {
         if (response.ok) {
           return response.json()
@@ -36,9 +40,13 @@ function App() {
   //  3. Al actualizar la variable apiData se vuelve a renderizar el componente
   //  4. LO IMPORTANTE - sin no esta encapsulada dentro de useEffect, la función fetchData() se vuelve a llamar, y
   //                     volvemos al punto (2)
+  
+  // Si quisieramos que fetchData se llamara al actualizar una variable (por ejemplo pageNumber),
+  // deberíamos meterla en la lista de dependencias
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [pageNumber])
+  
   // ============== ================ ============================
 
   function addUser(newUser) {
@@ -63,6 +71,18 @@ function App() {
     <h3>First React API app.</h3>
     <UserForm apiUrl={apiUrl} addUserCallback={addUser}/>
     { apiData ? renderUsers(apiData) : 'Loading....' }
+
+    <hr />
+    <p>
+      La paginación NO funciona por no tener la api preparada,
+      sin embargo está aquí para ver cómo funciona useEffect()
+      (puedes observar el efecto dentro de la pestaña Network de la consola de desarrollador)
+    </p>
+    <button onClick={() => { setPageNumber(1)}}>1</button>
+    <button onClick={() => { setPageNumber(2)}}>2</button>
+    <button onClick={() => { setPageNumber(3)}}>3</button>
+
+    <p>Viendo página: {pageNumber}</p>
     </>
   )
 }
