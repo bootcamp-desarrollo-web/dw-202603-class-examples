@@ -1,5 +1,10 @@
+import { useState } from "react"
+
 function UserForm({apiUrl, addUserCallback}) {
 
+    // Esta variable se usa para 
+    const [submittingForm, setSubmittingForm] = useState(false)
+    
     // Función que se ejecuta cuando se envía el formulario
     function handleSubmit(ev) {
         // Evita que la página recargue al enviar el formulario
@@ -28,6 +33,9 @@ function UserForm({apiUrl, addUserCallback}) {
             },
         }
 
+        // Deshabilitar el formulario
+        setSubmittingForm(true)
+
         // Enviamos los datos al servidor usando fetch        
         fetch(apiUrl, requestData)
             .then(response => {
@@ -48,8 +56,11 @@ function UserForm({apiUrl, addUserCallback}) {
                 // Captura de errores en la petición                
                 console.error(`[ERROR] ${err}`)
             })
-
-       }
+            .finally(() => {
+                // Volver a habilitar el formulario
+                setSubmittingForm(false)
+            })
+    }
 
     return (
         <div className="user-form">
@@ -60,6 +71,7 @@ function UserForm({apiUrl, addUserCallback}) {
                     <input type="text" name="name"
                         placeholder="Nombre de usuario"
                         autoComplete="off"
+                        disabled={submittingForm}
                     />
                 </label>
                 
@@ -67,6 +79,7 @@ function UserForm({apiUrl, addUserCallback}) {
                     <input type="text" name="email"
                         placeholder="Correo electrónico"
                         autoComplete="off"
+                        disabled={submittingForm}
                     />
                 </label>
 
@@ -74,10 +87,11 @@ function UserForm({apiUrl, addUserCallback}) {
                     <input type="text" name="avatar"
                         placeholder="URL del avatar"
                         autoComplete="off"
+                        disabled={submittingForm}
                     />
                 </label>
 
-                <button type="submit">
+                <button type="submit" disabled={submittingForm}>
                     Enviar
                 </button>
             </form>
