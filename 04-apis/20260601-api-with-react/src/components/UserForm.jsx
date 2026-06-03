@@ -8,9 +8,15 @@ function UserForm({apiUrl, addUserCallback}) {
 
         // Se crea un objeto con los valores introducidos en el formulario
         const newUser = {
-            name: ev.target.name.value,
-            email: ev.target.email.value,
-            avatar: ev.target.avatar.value
+            name: ev.target.name.value.trim(),
+            email: ev.target.email.value.trim(),
+            avatar: ev.target.avatar.value.trim()
+        }
+
+        // Validación simple (y naive) de los campos
+        if (newUser.name === '' || newUser.email === '') {
+            alert('Campos name/email son obligatorios')
+            return
         }
 
         // Configuración de la petición POST para enviar el nuevo usuario
