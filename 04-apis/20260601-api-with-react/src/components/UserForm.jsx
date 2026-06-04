@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 function UserForm({apiUrl, addUserCallback}) {
 
@@ -78,12 +78,31 @@ function UserForm({apiUrl, addUserCallback}) {
     function handleChange(e) {
         let currentPropName = e.target.name
         let currentPropValue = e.target.value
-        setUserData((prev) => ({ ...prev, [currentPropName]: currentPropValue}))
+
+        setUserData((prev) => {
+            let currentUserData = ({ ...prev, [currentPropName]: currentPropValue})
+
+            // Guardar en el localStorage los datos del formulario
+            localStorage.setItem('currentUserData', JSON.stringify(currentUserData))
+
+            return currentUserData
+        })
     }
+
+    useEffect(() => {
+        // Recuperar del localStorage los datos del formulario
+        let currentUserData = JSON.parse(localStorage.getItem('currentUserData'))
+        console.log(currentUserData)
+
+        if (currentUserData) {
+            setUserData(currentUserData)
+        }
+        
+    }, [])
 
     return (
         <div className="user-form">
-            <pre>{JSON.stringify(userData)}</pre>
+            {/* <pre>{JSON.stringify(userData)}</pre> */}
             <form
                 onSubmit={handleSubmit}
             >
