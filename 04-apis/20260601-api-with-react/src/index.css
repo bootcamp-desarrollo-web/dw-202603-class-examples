@@ -53,3 +53,7 @@
 .user-form button:hover {
     background-color: #43a047;
 }
+
+.user-form button:disabled {
+    background-color: #aae0ab;
+}
