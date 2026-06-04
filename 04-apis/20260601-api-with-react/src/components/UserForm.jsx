@@ -4,6 +4,16 @@ function UserForm({apiUrl, addUserCallback}) {
 
     // Esta variable se usa para 
     const [submittingForm, setSubmittingForm] = useState(false)
+
+    // Una constante que contiene el objeto de un usuario vacío
+    const initUserData = {
+        name: '',
+        email: '',
+        avatar: ''
+    }
+
+    // Los datos que se van a usar en el formulario
+    const [userData, setUserData] = useState(initUserData)
     
     // Función que se ejecuta cuando se envía el formulario
     function handleSubmit(ev) {
@@ -13,9 +23,9 @@ function UserForm({apiUrl, addUserCallback}) {
 
         // Se crea un objeto con los valores introducidos en el formulario
         const newUser = {
-            name: ev.target.name.value.trim(),
-            email: ev.target.email.value.trim(),
-            avatar: ev.target.avatar.value.trim()
+            name: userData.name.trim(),
+            email: userData.email.trim(),
+            avatar: userData.avatar.trim()
         }
 
         // Validación simple (y naive) de los campos
@@ -51,6 +61,9 @@ function UserForm({apiUrl, addUserCallback}) {
             .then(data => {
                 // Llamamos al callback para añadir el usuario en el componente padre                
                 addUserCallback(data)
+
+                // Limpiamos los campos del formulario
+                setUserData(initUserData)
             })
             .catch(err => {
                 // Captura de errores en la petición                
@@ -62,8 +75,15 @@ function UserForm({apiUrl, addUserCallback}) {
             })
     }
 
+    function handleChange(e) {
+        let currentPropName = e.target.name
+        let currentPropValue = e.target.value
+        setUserData((prev) => ({ ...prev, [currentPropName]: currentPropValue}))
+    }
+
     return (
         <div className="user-form">
+            <pre>{JSON.stringify(userData)}</pre>
             <form
                 onSubmit={handleSubmit}
             >
@@ -72,6 +92,8 @@ function UserForm({apiUrl, addUserCallback}) {
                         placeholder="Nombre de usuario"
                         autoComplete="off"
                         disabled={submittingForm}
+                        value={userData.name}
+                        onChange={handleChange}
                     />
                 </label>
                 
@@ -80,6 +102,8 @@ function UserForm({apiUrl, addUserCallback}) {
                         placeholder="Correo electrónico"
                         autoComplete="off"
                         disabled={submittingForm}
+                        value={userData.email}
+                        onChange={handleChange}
                     />
                 </label>
 
@@ -88,6 +112,8 @@ function UserForm({apiUrl, addUserCallback}) {
                         placeholder="URL del avatar"
                         autoComplete="off"
                         disabled={submittingForm}
+                        value={userData.avatar}
+                        onChange={handleChange}
                     />
                 </label>
 
