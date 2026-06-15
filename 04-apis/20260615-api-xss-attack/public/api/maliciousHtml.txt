@@ -1,0 +1,1 @@
+<img src="x" onerror="alert('Ha ha ha! Se ha ejecutado ataque XSS...')" />
